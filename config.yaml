@@ -1,0 +1,30 @@
+# Phantom-X 客户端配置
+
+server: "wss://your-server.com:443/tunnel"
+token: "your-secret-token"
+
+socks5_listen: ":1080"
+
+# 连接池
+num_connections: 3
+write_timeout: 10s
+read_timeout: 60s
+
+# TLS
+insecure: false
+
+# ECH (抗 SNI 探测)
+enable_ech: true
+ech_domain: "cloudflare-ech.com"
+ech_dns: "https://doh.pub/dns-query"
+
+# 流量混淆 (Padding)
+enable_padding: true
+padding_min_size: 64      # 最小包大小
+padding_max_size: 256     # 最大填充长度
+padding_distribution: "mimicry"  # uniform, normal, mimicry
+
+# IP 策略
+ip_strategy: ""  # 4, 6, 4,6, 6,4
+
+log_level: "info"
